@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <title>МОНД</title>
+</head>
+<body>
+    <header class="d-flex justify-content-center py-1 border-bottom border-primary" >
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a th:href="@{/}" class="nav-link">Главная</a></li>
+            <li class="nav-item"><a th:href="@{/eds}" class="nav-link active" aria-current="page">ЭЦП</a></li>
+        </ul>
+    </header>
+    <main class="container py-5">
+        <div class="table-responsive">
+            <table class="table text-center table-bordered">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Назначение</th>
+                    <th>Владелец</th>
+                    <th>Начало действия</th>
+                    <th>Окончание действия</th>
+                    <th>Комментарий</th>
+                    <th>
+                        <button type="button" class="btn btn-success">
+                            <i class="bi bi-plus-circle"></i>
+                        </button>
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="text-start">
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td>СУФД</td>
+                        <td>Игнатова Елена Владимировна</td>
+                        <td>01.01.2021</td>
+                        <td>01.01.2021</td>
+                        <td>Установить в кассе</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-danger">
+                                    <i class="bi bi-x-octagon"></i>
+                                </button>
+                                <button type="button" class="btn btn-warning">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">2</td>
+                        <td>Госзакупки, СУФД</td>
+                        <td>Заплаткин</td>
+                        <td>01.01.2021</td>
+                        <td>05.03.2022</td>
+                        <td>Установить в кассе и экономистам</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-danger">
+                                    <i class="bi bi-x-octagon"></i>
+                                </button>
+                                <button type="button" class="btn btn-warning">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">3</td>
+                        <td>Контур</td>
+                        <td>Бармина</td>
+                        <td>01.01.2022</td>
+                        <td>12.11.2023</td>
+                        <td>Установить в ОК и материльную часть</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-danger">
+                                    <i class="bi bi-x-octagon"></i>
+                                </button>
+                                <button type="button" class="btn btn-warning">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="text-secondary">
+                        <td class="text-center">4</td>
+                        <td>Контур</td>
+                        <td>Бармина</td>
+                        <td>01.01.2021</td>
+                        <td>12.11.2022</td>
+                        <td>Срок действия истек</td>
+                        <td>
+                            <button type="button" class="btn btn-secondary">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
