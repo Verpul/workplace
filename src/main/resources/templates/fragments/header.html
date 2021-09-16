@@ -1,0 +1,13 @@
+<header th:fragment="headerFragment" class="d-flex justify-content-center py-1 border-bottom border-primary">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a th:href="@{/}" class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active':''}">Главная</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/eds}" class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/eds' ? 'active':''}">ЭЦП</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link" data-toggle="pill">Пароли</a>
+        </li>
+    </ul>
+</header>
