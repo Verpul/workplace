@@ -18,7 +18,7 @@ public class EdsController {
 
     @GetMapping
     public String edsTable(Model model) {
-        model.addAttribute("eds", edsRepository.findAll());
+        model.addAttribute("eds", edsRepository.findAllByOrderByActiveDescExpirationDateAsc());
 
         return  "eds/index";
     }

@@ -35,14 +35,14 @@
                 </tr>
                 </thead>
                 <tbody class="text-start">
-                <tr th:each="ed, iterStat : ${eds}" th:class="${ed.active}?'':'text-secondary'">
+                <tr th:each="ed, iterStat : ${eds}" th:class="${!ed.active}?'text-secondary'">
                     <td class="text-center" th:text="${iterStat.count}">1</td>
                     <td th:text="${ed.purpose}">СУФД</td>
                     <td th:text="${ed.owner}">Игнатова Валентина Александровна</td>
                     <td th:text="${#calendars.format(ed.beginDate, 'dd.MM.yyyy')}">01.01.2021</td>
                     <td th:text="${#calendars.format(ed.expirationDate, 'dd.MM.yyyy')}">01.01.2021</td>
                     <td th:text="${ed.comment}">Установить в кассе</td>
-                    <td>
+                    <td th:class="${!ed.active}?'text-center'">
                         <div class="btn-group">
                             <button type="button" th:class="${ed.active}?'btn btn-danger':'btn btn-secondary'">
                                 <i th:class="${ed.active}?'bi bi-x-octagon':'bi bi-trash'"></i>
@@ -54,78 +54,7 @@
                     </td>
                 </tr>
                 </tbody>
-                <!--    TEST DATA
-                <tbody class="text-start">
-                    <tr>
-                        <td class="text-center">1</td>
-                        <td>СУФД</td>
-                        <td>Игнатова Елена Владимировна</td>
-                        <td>01.01.2021</td>
-                        <td>01.01.2021</td>
-                        <td>Установить в кассе</td>
-                        <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger">
-                                    <i class="bi bi-x-octagon"></i>
-                                </button>
-                                <button type="button" class="btn btn-warning">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">2</td>
-                        <td>Госзакупки, СУФД</td>
-                        <td>Заплаткин</td>
-                        <td>01.01.2021</td>
-                        <td>05.03.2022</td>
-                        <td>Установить в кассе и экономистам</td>
-                        <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger">
-                                    <i class="bi bi-x-octagon"></i>
-                                </button>
-                                <button type="button" class="btn btn-warning">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">3</td>
-                        <td>Контур</td>
-                        <td>Бармина</td>
-                        <td>01.01.2022</td>
-                        <td>12.11.2023</td>
-                        <td>Установить в ОК и материльную часть</td>
-                        <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger">
-                                    <i class="bi bi-x-octagon"></i>
-                                </button>
-                                <button type="button" class="btn btn-warning">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="text-secondary">
-                        <td class="text-center">4</td>
-                        <td>Контур</td>
-                        <td>Бармина</td>
-                        <td>01.01.2021</td>
-                        <td>12.11.2022</td>
-                        <td>Срок действия истек</td>
-                        <td>
-                            <button type="button" class="btn btn-secondary">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-                END TEST DATA -->
-            </table>
+             </table>
         </div>
     </main>
 </body>
