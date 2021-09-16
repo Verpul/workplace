@@ -13,6 +13,7 @@
         <ul class="nav nav-pills">
             <li class="nav-item"><a th:href="@{/}" class="nav-link">Главная</a></li>
             <li class="nav-item"><a th:href="@{/eds}" class="nav-link active" aria-current="page">ЭЦП</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Пароли</a></li>
         </ul>
     </header>
     <main class="container py-5">
@@ -33,6 +34,27 @@
                     </th>
                 </tr>
                 </thead>
+                <tbody class="text-start">
+                <tr th:each="ed, iterStat : ${eds}" th:class="${ed.active}?'':'text-secondary'">
+                    <td class="text-center" th:text="${iterStat.count}">1</td>
+                    <td th:text="${ed.purpose}">СУФД</td>
+                    <td th:text="${ed.owner}">Игнатова Валентина Александровна</td>
+                    <td th:text="${#calendars.format(ed.beginDate, 'dd.MM.yyyy')}">01.01.2021</td>
+                    <td th:text="${#calendars.format(ed.expirationDate, 'dd.MM.yyyy')}">01.01.2021</td>
+                    <td th:text="${ed.comment}">Установить в кассе</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" th:class="${ed.active}?'btn btn-danger':'btn btn-secondary'">
+                                <i th:class="${ed.active}?'bi bi-x-octagon':'bi bi-trash'"></i>
+                            </button>
+                            <button type="button" class="btn btn-warning" th:if="${ed.active}">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+                <!--    TEST DATA
                 <tbody class="text-start">
                     <tr>
                         <td class="text-center">1</td>
@@ -102,6 +124,7 @@
                         </td>
                     </tr>
                 </tbody>
+                END TEST DATA -->
             </table>
         </div>
     </main>

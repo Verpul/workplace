@@ -20,6 +20,6 @@ public class EdsController {
     public String edsTable(Model model) {
         model.addAttribute("eds", edsRepository.findAll());
 
-        return  "edsTable";
+        return  "eds/index";
     }
 }
