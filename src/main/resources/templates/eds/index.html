@@ -33,12 +33,15 @@
                     <td th:text="${ed.comment}">Установить в кассе</td>
                     <td th:class="${!ed.active}?'text-center'">
                         <div class="btn-group">
-                            <button type="button" th:class="${ed.active}?'btn btn-danger':'btn btn-secondary'">
-                                <i th:class="${ed.active}?'bi bi-x-octagon':'bi bi-trash'"></i>
+                            <button type="button" class="btn btn-danger" th:if="${ed.active}">
+                                <i class="bi bi-x-octagon"></i>
                             </button>
                             <button type="button" class="btn btn-warning" th:if="${ed.active}">
                                 <i class="bi bi-pencil"></i>
                             </button>
+                            <a th:href="@{'eds/delete/' + ${ed.id}}" class="btn btn-secondary" th:if="${!ed.active}">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </div>
                     </td>
                 </tr>
