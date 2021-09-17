@@ -1,13 +1,16 @@
 package ru.mond51.workplace.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.mond51.workplace.model.Eds;
 import ru.mond51.workplace.repository.EdsRepository;
 
 @Controller
+@Slf4j
 @RequestMapping("/eds")
 public class EdsController {
 
@@ -27,6 +30,16 @@ public class EdsController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         edsRepository.deleteById(id);
+
+        return "redirect:/eds";
+    }
+
+    @GetMapping("/deactivate/{id}")
+    public String deactivate(@PathVariable Long id) {
+        Eds edsToEdit = edsRepository.findById(id).get();
+        edsToEdit.setActive(false);
+        edsToEdit.setComment("Срок действия истек");
+        edsRepository.save(edsToEdit);
 
         return "redirect:/eds";
     }

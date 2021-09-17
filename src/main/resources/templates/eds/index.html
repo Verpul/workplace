@@ -33,9 +33,9 @@
                     <td th:text="${ed.comment}">Установить в кассе</td>
                     <td th:class="${!ed.active}?'text-center'">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-danger" th:if="${ed.active}">
+                            <a th:href="@{'eds/deactivate/' + ${ed.id}}" class="btn btn-danger" th:if="${ed.active}">
                                 <i class="bi bi-x-octagon"></i>
-                            </button>
+                            </a>
                             <button type="button" class="btn btn-warning" th:if="${ed.active}">
                                 <i class="bi bi-pencil"></i>
                             </button>
