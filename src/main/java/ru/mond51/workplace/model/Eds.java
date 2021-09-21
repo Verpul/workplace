@@ -26,6 +26,7 @@ public class Eds {
     private Date beginDate;
     private Date expirationDate;
     private String comment;
+    private String creator;
     private boolean active = true;
 
 }

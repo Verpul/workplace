@@ -14,6 +14,7 @@
                 <thead>
                 <tr>
                     <th>#</th>
+                    <th>Изготовитель</th>
                     <th>Назначение</th>
                     <th>Владелец</th>
                     <th>Начало действия</th>
@@ -29,6 +30,7 @@
                 <tbody class="text-start">
                 <tr th:each="ed, iterStat : ${eds}" th:class="${!ed.active}?'text-secondary'">
                     <td class="text-center" th:text="${iterStat.count}">1</td>
+                    <td th:text="${ed.creator}">УФК</td>
                     <td th:text="${ed.purpose}">СУФД</td>
                     <td th:text="${ed.owner}">Игнатова Валентина Александровна</td>
                     <td th:text="${#calendars.format(ed.beginDate, 'dd.MM.yyyy')}">01.01.2021</td>
