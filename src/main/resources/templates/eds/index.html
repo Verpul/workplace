@@ -6,6 +6,9 @@
 <header th:replace="fragments/header :: headerFragment">
 </header>
     <main class="container py-5">
+        <!--    Modals    -->
+        <div th:include="fragments/modal/confirm :: confirm"></div>
+
         <div class="table-responsive">
             <table class="table text-center table-bordered">
                 <thead>
@@ -33,15 +36,17 @@
                     <td th:text="${ed.comment}">Установить в кассе</td>
                     <td th:class="${!ed.active}?'text-center'">
                         <div class="btn-group">
-                            <a th:href="@{'eds/deactivate/' + ${ed.id}}" class="btn btn-danger" th:if="${ed.active}">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#confirm" th:data-id="${ed.id}" data-type="deactivate" th:if="${ed.active}">
                                 <i class="bi bi-x-octagon"></i>
-                            </a>
+                            </button>
                             <button type="button" class="btn btn-warning" th:if="${ed.active}">
                                 <i class="bi bi-pencil"></i>
                             </button>
-                            <a th:href="@{'eds/delete/' + ${ed.id}}" class="btn btn-secondary" th:if="${!ed.active}">
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#confirm" th:data-id="${ed.id}" data-type="delete" th:if="${!ed.active}">
                                 <i class="bi bi-trash"></i>
-                            </a>
+                            </button>
                         </div>
                     </td>
                 </tr>
@@ -49,5 +54,7 @@
              </table>
         </div>
     </main>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/modal.js"></script>
 </body>
 </html>
