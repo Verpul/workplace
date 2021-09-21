@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/head :: headFragment">
+</head>
+<body>
+<header th:replace="fragments/header :: headerFragment">
+</header>
+<main class="container py-5">
+    <form class="row justify-content-center" >
+        <div class="col-md-6">
+            <div class="row g-3">
+                <div class="col-12">
+                    <label for="purpose" class="form-label">Назначение</label>
+                    <input type="text" class="form-control" id="purpose">
+                </div>
+                <div class="col-12">
+                    <label for="owner" class="form-label">Владелец</label>
+                    <input type="text" class="form-control" id="owner">
+                </div>
+                <div class="col-md-6">
+                    <label for="begin_date" class="form-label">Начало действия</label>
+                    <input type="date" class="form-control" id="begin_date">
+                </div>
+                <div class="col-md-6">
+                    <label for="end_date" class="form-label">Окончание действия</label>
+                    <input type="date" class="form-control" id="end_date">
+                </div>
+                <div class="col-12">
+                    <label for="comment" class="form-label">Комментарий</label>
+                    <textarea class="form-control" id="comment"></textarea>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</main>
+</body>
+</html>

@@ -41,4 +41,9 @@ public class EdsController {
 
         return "redirect:/eds";
     }
+
+    @GetMapping("/create")
+    public String create() {
+        return "eds/create";
+    }
 }
