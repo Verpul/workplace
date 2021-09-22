@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.mond51.workplace.model.Eds;
 import ru.mond51.workplace.repository.EdsRepository;
@@ -43,7 +44,15 @@ public class EdsController {
     }
 
     @GetMapping("/create")
-    public String create() {
+    public String createForm(Model model) {
+        model.addAttribute("eds", new Eds());
         return "eds/create";
+    }
+
+    @PostMapping("/create")
+    public String save(Eds eds) {
+        edsRepository.save(eds);
+
+        return "redirect:/eds";
     }
 }
