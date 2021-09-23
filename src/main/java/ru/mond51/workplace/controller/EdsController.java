@@ -55,4 +55,19 @@ public class EdsController {
 
         return "redirect:/eds";
     }
+
+    @GetMapping("/edit/{id}")
+    public String editForm(@PathVariable Long id, Model model) {
+        Eds edsToEdit = edsRepository.findById(id).get();
+        model.addAttribute("eds", edsToEdit);
+
+        return "eds/edit";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String update(Eds eds) {
+        edsRepository.save(eds);
+
+        return "redirect:/eds";
+    }
 }

@@ -42,9 +42,9 @@
                                     data-bs-target="#confirm" th:data-id="${ed.id}" data-type="deactivate" th:if="${ed.active}">
                                 <i class="bi bi-x-octagon"></i>
                             </button>
-                            <button type="button" class="btn btn-warning" th:if="${ed.active}">
+                            <a th:href="@{'eds/edit/' + ${ed.id}}"  class="btn btn-warning" th:if="${ed.active}">
                                 <i class="bi bi-pencil"></i>
-                            </button>
+                            </a>
                             <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                                     data-bs-target="#confirm" th:data-id="${ed.id}" data-type="delete" th:if="${!ed.active}">
                                 <i class="bi bi-trash"></i>
