@@ -46,7 +46,8 @@ public class EdsController {
     @GetMapping("/create")
     public String createForm(Model model) {
         model.addAttribute("eds", new Eds());
-        return "eds/create";
+        model.addAttribute("action", "create");
+        return "eds/form";
     }
 
     @PostMapping("/create")
@@ -61,7 +62,7 @@ public class EdsController {
         Eds edsToEdit = edsRepository.findById(id).get();
         model.addAttribute("eds", edsToEdit);
 
-        return "eds/edit";
+        return "eds/form";
     }
 
     @PostMapping("/edit/{id}")

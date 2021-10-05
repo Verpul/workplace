@@ -6,7 +6,8 @@
 <header th:replace="fragments/header :: headerFragment">
 </header>
 <main class="container py-5">
-    <form class="row justify-content-center" th:object="${eds}" th:action="@{'/eds/edit/' + ${eds.id}}" method="post">
+    <form class="row justify-content-center" th:object="${eds}" method="post"
+          th:action="${action} == 'create' ? @{/eds/create} : @{'/eds/edit/' + ${eds.id}}">
         <div class="col-md-6">
             <div class="row g-3">
                 <div class="col-12">
