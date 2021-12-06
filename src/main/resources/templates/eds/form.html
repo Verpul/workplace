@@ -12,23 +12,33 @@
             <div class="row g-3">
                 <div class="col-12">
                     <label for="owner" class="form-label">Владелец</label>
-                    <input type="text" class="form-control" id="owner" th:field="*{owner}">
+                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('owner') ? 'is-invalid':''}"
+                           id="owner" th:field="*{owner}">
+                    <span class="invalid-feedback" th:if="${#fields.hasErrors('owner')}" th:errors="*{owner}"></span>
                 </div>
                 <div class="col-md-6">
                     <label for="creator" class="form-label">Изготовитель</label>
-                    <input type="text" class="form-control" id="creator" th:field="*{creator}">
+                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('creator') ? 'is-invalid':''}"
+                           id="creator" th:field="*{creator}">
+                    <span class="invalid-feedback" th:if="${#fields.hasErrors('creator')}" th:errors="*{creator}"></span>
                 </div>
                 <div class="col-md-6">
                     <label for="purpose" class="form-label">Назначение</label>
-                    <input type="text" class="form-control" id="purpose" th:field="*{purpose}">
+                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('purpose') ? 'is-invalid':''}"
+                           id="purpose" th:field="*{purpose}">
+                    <span class="invalid-feedback" th:if="${#fields.hasErrors('purpose')}" th:errors="*{purpose}"></span>
                 </div>
                 <div class="col-md-6">
                     <label for="begin_date" class="form-label">Начало действия</label>
-                    <input type="date" class="form-control" id="begin_date" th:field="*{beginDate}">
+                    <input type="date" class="form-control" th:classappend="${#fields.hasErrors('beginDate') ? 'is-invalid':''}"
+                           id="begin_date" th:field="*{beginDate}">
+                    <span class="invalid-feedback" th:if="${#fields.hasErrors('beginDate')}" th:errors="*{beginDate}"></span>
                 </div>
                 <div class="col-md-6">
                     <label for="end_date" class="form-label">Окончание действия</label>
-                    <input type="date" class="form-control" id="end_date" th:field="*{expirationDate}">
+                    <input type="date" class="form-control" th:classappend="${#fields.hasErrors('expirationDate') ? 'is-invalid':''}"
+                           id="end_date" th:field="*{expirationDate}">
+                    <span class="invalid-feedback" th:if="${#fields.hasErrors('expirationDate')}" th:errors="*{expirationDate}"></span>
                 </div>
                 <div class="col-12">
                     <label for="comment" class="form-label">Комментарий</label>

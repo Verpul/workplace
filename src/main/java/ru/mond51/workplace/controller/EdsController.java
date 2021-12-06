@@ -2,12 +2,15 @@ package ru.mond51.workplace.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.mond51.workplace.model.Eds;
 import ru.mond51.workplace.repository.EdsRepository;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/eds")
@@ -47,13 +50,18 @@ public class EdsController {
     public String createForm(Model model) {
         model.addAttribute("eds", new Eds());
         model.addAttribute("action", "create");
+
         return "eds/form";
     }
 
     @PostMapping("/create")
-    public String save(Eds eds) {
-        edsRepository.save(eds);
+    public String save(@Valid Eds eds, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("action", "create");
+            return "eds/form";
+        }
 
+        edsRepository.save(eds);
         return "redirect:/eds";
     }
 
@@ -66,9 +74,12 @@ public class EdsController {
     }
 
     @PostMapping("/edit/{id}")
-    public String update(Eds eds) {
-        edsRepository.save(eds);
+    public String update(@Valid Eds eds, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "eds/form";
+        }
 
+        edsRepository.save(eds);
         return "redirect:/eds";
     }
 }
